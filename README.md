@@ -37,3 +37,90 @@ net:
 MongoDB 服务正在启动 .
 MongoDB 服务已经启动成功。
 说明安装成功
+
+# Python操作MongoDB
+import pymongo
+
+#连接MongoDB
+client=pymongo.MongoClient("mongodb://localhost:27017/");
+#创建数据库
+cnp=client["company"];
+#创建集合
+emp=cnp["emp"];
+#准备数据
+#data={"name":"Jackline","age":23,"gender":"female","cameInTime":"2005-3-12","job":"secretary","salary":2000};
+##新增：插入数据
+#res=emp.insert_one(data);
+
+#data={"name":"Mary","age":23,"gender":"female","cameInTime":"2005-2-12","job":"office lady","salary":2200};
+##插入数据
+#res=emp.insert_one(data);
+#data={"name":"Baby","age":33,"gender":"female","cameInTime":"2007-3-12","job":"asst manager","salary":2100};
+##插入数据
+#res=emp.insert_one(data);
+#data={"name":"Jade","age":23,"gender":"female","cameInTime":"2005-4-12","job":"designer","salary":2500};
+##插入数据
+#res=emp.insert_one(data);
+
+#print(res);
+
+##新增：插入多条数据
+#emps=[
+#      {"name":"Dion","age":23,"gender":"female","cameInTime":"2005-4-12","job":"clerk","salary":2300},
+#      {"name":"emily","age":23,"gender":"female","cameInTime":"2005-4-12","job":"ol","salary":2400},
+#      {"name":"fanny","age":23,"gender":"female","cameInTime":"2005-4-12","job":"researcher","salary":2900}
+#    ]
+#x=emp.insert_many(emps)
+
+#查询
+#查询全部
+#for x in cnp.emp.find():
+#   print(x)
+
+#查询多个
+#qrstr={"name":"Jackline"}
+#doc=emp.find(qrstr)
+#for x in doc:
+#    print(x)
+
+#查询一个
+#qrstr={"name":"Jackline"}
+#rs=emp.find_one(qrstr)
+#print(rs)
+
+#修改一个
+#mydata={"name":"Jackline"}
+#newVal={"$set":{"salary":1500}}
+
+#emp.update_one(mydata,newVal)
+
+#qrstr={"name":"Jackline"}
+#rs=emp.find_one(qrstr)
+#print(rs)
+
+#利用正则表达式修改一个或多个
+#myQr={"name":{"$regex":"^J"}}
+#newVal={"$set":{"salary":1900}}
+#res=emp.update_many(myQr,newVal)
+#print(res.modified_count,"条数据已经修改")
+
+#删除一条数据
+#deldata={"name":"Jackline"}
+#result=emp.delete_one(deldata)
+#print(result.deleted_count)
+
+#删除多条数据
+#deldata={"name":"Jackline"}
+#result=emp.delete_many(deldata)
+#print(result.deleted_count)
+
+#利用正则表达式删除
+#deldata={"name":{"$regex":"^J"}}
+#result=emp.delete_many(deldata)
+#print(result.deleted_count)
+
+#排序
+recs=emp.find().sort("salary")
+for x in recs:
+    print(x)
+
