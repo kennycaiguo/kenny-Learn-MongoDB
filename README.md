@@ -39,6 +39,22 @@ MongoDB 服务已经启动成功。
 说明安装成功
 
 # Python操作MongoDB
+PyMongo
+Python 要连接 MongoDB 需要 MongoDB 驱动，这里我们使用 PyMongo 驱动来连接。
+
+pip 安装
+pip 是一个通用的 Python 包管理工具，提供了对 Python 包的查找、下载、安装、卸载的功能。
+
+安装 pymongo:
+
+$ python3 -m pip3 install pymongo
+也可以指定安装的版本:
+
+$ python3 -m pip3 install pymongo==3.5.1
+更新 pymongo 命令：
+
+$ python3 -m pip3 install --upgrade pymongo
+## 代码实例：
 import pymongo
 
 #连接MongoDB
