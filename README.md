@@ -140,3 +140,4 @@ recs=emp.find().sort("salary")
 for x in recs:
     print(x)
 
+# <a href="https://chinese.freecodecamp.org/news/learn-mongodb/">MongoDB 基础教程</a>
