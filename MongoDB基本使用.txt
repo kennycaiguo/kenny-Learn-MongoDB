@@ -1,7 +1,9 @@
 MongoDB基本使用：
 打开MongoDB数据库：打开cmd窗口，输入mongo
 1.查看数据库：show databases
-2.切换到指定数据库use 数据库名，如： use company
+2.创建或者切换到指定数据库use 数据库名，如： use company，如果数据库不存在，就会创建一个新的同名数据库
+2.1 插入数据：db.emp.insert(),格式：db.集合名称.insert(键：值，键：值...),如果集合
+2.2 修改集合名称，使用“db.旧原集合名.renameCollection('新集合名');”命令修改集合名称
 3.查看指定数据库的所有记录：
  db.集合名称.find() ,如：db.emp.find()(假设company数据库有一个名叫emp的集合，注意这里不能使用company.emp,需要使用db代替）
 如果你想通过更清晰的方式查看此数据，只需在其末尾添加 .pretty() 即可。这将以漂亮的 JSON 格式显示文档。
